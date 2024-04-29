@@ -36,8 +36,8 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <div>
-        <h1 className={styles.gradientText0}>
-          Welcome to sample wallet connect App{" "}
+        <h1 className={styles.gradientText}>
+          Welcome to GreatApe wallet connect App
         </h1>
 
         <div className={styles.connect}>
