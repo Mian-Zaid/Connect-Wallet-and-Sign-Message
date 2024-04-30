@@ -1,10 +1,13 @@
 import { ConnectWallet, useSDK } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
 import { NextPage } from "next";
 import { useState } from "react";
 
 
 const Home: NextPage = () => {
+  const { user } = useUser();
+
   const [signature, setSignature] = useState('N/A')
   const [address, setAddress] = useState('N/A')
 
@@ -41,13 +44,17 @@ const Home: NextPage = () => {
         </h1>
 
         <div className={styles.connect}>
-          <ConnectWallet />
+          <ConnectWallet
+            auth={{
+              loginOptional: false,
+            }} />
         </div>
-        <button  onClick={signMessage}>Sign message</button>
+        {user && <p>You are signed in as {user.address}</p>}
+        {/* <button onClick={signMessage}>Sign message</button>
         <p>Signature: {signature}</p>
         <br />
         <button onClick={recoverAddress}>Recover Wallet Address</button>
-        <p>Wallet Address: {address}</p>
+        <p>Wallet Address: {address}</p> */}
       </div>
 
     </div>

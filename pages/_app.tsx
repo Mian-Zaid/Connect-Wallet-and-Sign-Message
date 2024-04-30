@@ -13,6 +13,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider
       activeChain={activeChain}
+      authConfig={{
+        domain: "localhost:3000",
+        authUrl: "/api/auth",
+      }}
     >
       <Component {...pageProps} />
     </ThirdwebProvider>
